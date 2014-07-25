@@ -9,7 +9,33 @@ platforms:
   - name: ubuntu-12.04
 
 suites:
-  - name: default
+  - name: master1
     run_list:
       - recipe[consul::default]
     attributes:
+  - name: master2
+    run_list:
+      - recipe[consul::default]
+    atributes:
+  - name: client1
+    run_list:
+      - recipe[consul::default]
+    attributes:
+  - name: client2
+    run_list:
+      - recipe[consul::default]
+    attributes:
+  - name: client3
+    run_list:
+      - recipe[consul::default]
+    attributes:
+  - name: dc2-master1
+    run_list:
+      - recipe[consul::default]
+    attributes:
+  - name: dc2-client1
+    run_list:
+      - recipe[consul::default]
+    attributes:
+
+
