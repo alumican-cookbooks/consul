@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "apt"
+package "curl"
+
 cookbook_file "/usr/local/bin/consul" do
   source "consul"
   owner "root"
@@ -14,4 +17,11 @@ cookbook_file "/usr/local/bin/consul" do
   mode 00755
 end
 
+template "/etc/init/consul.conf" do
+  source "consul.conf"
+end
 
+service "consul" do
+  provider Chef::Provider::Service::Upstart
+  action [:enable, :start]
+end

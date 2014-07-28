@@ -13,29 +13,52 @@ suites:
     run_list:
       - recipe[consul::default]
     attributes:
+      consul:
+        type: "master"
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.2"}]
   - name: master2
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.3"}]
     atributes:
   - name: client1
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.4"}]
     attributes:
   - name: client2
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.5"}]
     attributes:
   - name: client3
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.6"}]
     attributes:
   - name: dc2-master1
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.7"}]
     attributes:
   - name: dc2-client1
     run_list:
       - recipe[consul::default]
+    driver_config:
+      network:
+      - ["private_network", {ip: "192.168.0.8"}]
     attributes:
 
 
