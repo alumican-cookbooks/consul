@@ -19,6 +19,8 @@ end
 
 template "/etc/init/consul.conf" do
   source "consul.conf"
+  notifies :stop, "service[consul]", :immediately
+  notifies :start, "service[consul]", :immediately
 end
 
 service "consul" do
